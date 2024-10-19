@@ -1,0 +1,7 @@
+alias v="nvim"
+alias c="code"
+alias ls="eza"
+alias py="python3"
+alias python="python3"
+alias gitgraph="git log --all --decorate --oneline --graph"
+alias kanata_enable="sudo kanata_macos_arm64 --cfg ~/dots/kanata/config.kbd"

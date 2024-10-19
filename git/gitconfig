@@ -1,0 +1,7 @@
+[user]
+	name = Nick Choi
+	email = 91555532+nc108x@users.noreply.github.com
+[push]
+	autoSetupRemote = true
+[core]
+	editor = nvim
