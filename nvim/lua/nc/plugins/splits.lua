@@ -7,4 +7,7 @@ return {
     { "<c-k>", "<cmd>lua require('smart-splits').move_cursor_up()<cr>" },
     { "<c-l>", "<cmd>lua require('smart-splits').move_cursor_right()<cr>" },
   },
+  opts = {
+    at_edge = "stop",
+  },
 }
