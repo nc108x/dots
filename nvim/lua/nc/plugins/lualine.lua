@@ -1,12 +1,13 @@
 return {
   "nvim-lualine/lualine.nvim",
+  lazy = false,
   opts = function(_, opts)
     local icons = LazyVim.config.icons
 
-    -- opts.options = {
-    --   section_separators = " ",
-    --   component_separators = "|",
-    -- }
+    opts.options = {
+      section_separators = "",
+      component_separators = "",
+    }
 
     opts.sections = {
       lualine_a = { "mode" },

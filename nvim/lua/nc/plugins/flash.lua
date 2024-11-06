@@ -5,10 +5,10 @@ return {
     opts.label = {
       uppercase = false,
     }
-    opts.modes = {
-      search = {
-        enabled = true,
-      },
-    }
+    -- opts.modes = {
+    --   search = {
+    --     enabled = true,
+    --   },
+    -- }
   end,
 }
