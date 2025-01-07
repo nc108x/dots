@@ -11,7 +11,7 @@ config.initial_cols = 120
 
 config.inactive_pane_hsb = {
 	saturation = 1,
-	brightness = 0.5,
+	brightness = 0.6,
 }
 config.leader = { key = "s", mods = "CTRL", timeout_milliseconds = 1000 }
 
@@ -52,6 +52,7 @@ config.keys = {
 	{ key = "-", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
 	{ key = "\\", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	{ key = "d", mods = "LEADER", action = act.CloseCurrentPane({ confirm = true }) },
+	{ key = "m", mods = "LEADER", action = act.TogglePaneZoomState },
 	split_nav("move", "h"),
 	split_nav("move", "j"),
 	split_nav("move", "k"),
@@ -61,5 +62,52 @@ config.keys = {
 	split_nav("resize", "k"),
 	split_nav("resize", "l"),
 }
+
+-- https://github.com/michaelbrusegard/tabline.wez
+local tabline = w.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
+tabline.setup({
+	options = {
+		icons_enabled = true,
+		theme = "Tokyo Night",
+		color_overrides = {},
+		section_separators = {
+			left = "",
+			right = "",
+		},
+		component_separators = {
+			left = w.nerdfonts.pl_left_soft_divider,
+			right = w.nerdfonts.pl_right_soft_divider,
+		},
+		tab_separators = {
+			left = "",
+			right = "",
+		},
+	},
+	sections = {
+		tabline_a = { " n-air " },
+		tabline_b = {},
+		tabline_c = {},
+		tab_active = {
+			"index",
+			{ "parent", padding = 0 },
+			"/",
+			{ "cwd", padding = { left = 0, right = 1 } },
+			{ "zoomed", padding = 1 },
+		},
+		tab_inactive = {
+			"index",
+			{ "parent", padding = 0 },
+			"/",
+			{ "cwd", padding = { left = 0, right = 1 } },
+			{ "zoomed", padding = 1 },
+		},
+		-- tab_inactive = { "index", { "process", padding = { left = 0, right = 1 } } },
+		tabline_x = {},
+		tabline_y = {},
+		tabline_z = {},
+	},
+	extensions = {},
+})
+tabline.apply_to_config(config)
 
 return config
