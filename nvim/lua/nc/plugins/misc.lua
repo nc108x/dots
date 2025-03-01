@@ -22,16 +22,12 @@ return {
         opts = { skip = true },
       })
     end,
-    keys = {
-      { "<c-f>", false },
-      { "<c-b>", false },
-    },
   },
 
   {
     "rcarriga/nvim-notify",
     opts = {
-      timeout = 5000,
+      timeout = 3000,
     },
   },
 }
