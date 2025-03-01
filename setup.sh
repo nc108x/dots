@@ -6,6 +6,9 @@ echo "Copying config files..."
 rm ~/.gitconfig
 ln -s $dots/git/gitconfig ~/.gitconfig
 
+rm ~/.gitignore_global
+ln -s $dots/git/gitignore_global ~/.gitignore_global
+
 rm ~/.tmux.conf
 ln -s $dots/tmux/tmux.conf ~/.tmux.conf
 

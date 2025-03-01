@@ -5,3 +5,4 @@
 	autoSetupRemote = true
 [core]
 	editor = nvim
+	excludesfile = /Users/nc/.gitignore_global
