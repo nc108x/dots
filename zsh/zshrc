@@ -74,7 +74,7 @@ ZSH_THEME="robbyrussell"
 
 export NVM_LAZY_LOAD=true
 export NVM_LAZY_LOAD_EXTRA_COMMANDS=('nvim')
-
+zstyle ':omz:plugins:nvm' lazy yes
 plugins=(
   git
   zsh-autosuggestions
@@ -115,7 +115,7 @@ bindkey '^y' autosuggest-accept
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-. "$HOME/dots/zsh/aliases"
+. "$HOME/dots/zsh/aliases.zsh"
 . "$HOME/.cargo/env"
 
 eval $(thefuck --alias fml)
@@ -123,17 +123,44 @@ eval $(thefuck --alias fml)
 
 export PATH=$PATH:"$HOME/.local/bin"
 
+export GEM_HOME="$HOME/.gem"
+export PATH="$GEM_HOME/bin:$PATH"
 export PATH=$PATH:/Users/nc/.gem/ruby/3.3.0/bin
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-export GEM_HOME=$HOME/.gem
-export PATH=$GEM_HOME/bin:$PATH
+
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH="$PATH:$ANDROID_HOME/emulator"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
+export PATH="$PATH:$ANDROID_HOME/cmdline-tools"
+
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH="$HOME/Library/flutter/bin:$PATH"
 
-export PATH=$HOME/Library/flutter/bin:$PATH
+export PNPM_HOME="/Users/nc/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 
-function gi() { curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@ ;}
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+# see: https://github.com/ContinuumIO/anaconda-issues/issues/10173
+if [ 1 -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
