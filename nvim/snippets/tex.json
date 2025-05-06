@@ -1,0 +1,23 @@
+{
+  "newdoc": {
+    "prefix": "newdoc",
+    "body": [
+      "\\documentclass{article}",
+      "\\usepackage{graphicx}",
+      "\\usepackage{amsmath}",
+      "",
+      "\\title{${1:Title}}",
+      "\\author{${2:nc108x}}",
+      "\\date{${3:Date}}",
+      "",
+      "\\begin{document}",
+      "",
+      "\\maketitle",
+      "",
+      "\\section{${4:Section Title}}",
+      "${0}",
+      "",
+      "\\end{document}"
+    ]
+  }
+}
