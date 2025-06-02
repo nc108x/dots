@@ -6,3 +6,4 @@ v.shiftwidth = 4
 v.exrc = true
 
 vim.g.snacks_animate = false
+vim.g.root_spec = { "cwd" }

@@ -9,7 +9,6 @@ return {
       end,
     },
   },
-
   {
     "folke/noice.nvim",
     opts = function(_, opts)

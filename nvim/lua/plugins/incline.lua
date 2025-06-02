@@ -1,7 +1,9 @@
 return {
   "b0o/incline.nvim",
-  priority = 1200,
   opts = {
+    hide = {
+      only_win = true,
+    },
     window = {
       padding = 0,
       margin = { horizontal = 0 },

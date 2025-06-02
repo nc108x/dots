@@ -23,8 +23,9 @@ return {
               info = icons.diagnostics.Info,
               hint = icons.diagnostics.Hint,
             },
+            padding = { left = 2, right = 0 },
           },
-          { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+          { "filetype", icon_only = true, separator = "", padding = { left = 2, right = 0 } },
           { LazyVim.lualine.pretty_path() },
         },
         lualine_x = {},
@@ -49,11 +50,11 @@ return {
             color = function() return { fg = Snacks.util.color("Debug") } end,
           },
           -- stylua: ignore
-          {
-            require("lazy.status").updates,
-            cond = require("lazy.status").has_updates,
-            color = function() return { fg = Snacks.util.color("Special") } end,
-          },
+          -- {
+          --   require("lazy.status").updates,
+          --   cond = require("lazy.status").has_updates,
+          --   color = function() return { fg = Snacks.util.color("Special") } end,
+          -- },
           {
             "diff",
             symbols = {

@@ -7,9 +7,20 @@ return {
         and vim.b.completion ~= false
     end,
     completion = {
+      list = {
+        selection = {
+          preselect = false,
+          auto_insert = false,
+        },
+      },
       ghost_text = {
         enabled = false,
       },
+    },
+    keymap = {
+      preset = "enter",
+      ["<Tab>"] = { "select_next", "fallback" },
+      ["<S-Tab>"] = { "select_prev", "fallback" },
     },
   },
 }

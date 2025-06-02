@@ -3,6 +3,7 @@ return {
   opts = function(_, opts)
     opts.dashboard = {
       preset = {
+      -- stylua: ignore start
         header = [[
                                __                
   ___     ___    ___   __  __ /\_\    ___ ___    
@@ -14,6 +15,7 @@ return {
 
 Code bad
 ]],
+        -- stylua: ignore end
         keys = {
           {
             action = ":ene | startinsert",
@@ -29,9 +31,9 @@ Code bad
             key = "f",
           },
           {
-            action = ':lua Snacks.dashboard.pick("live_grep")',
-            desc = " Grep",
-            icon = " ",
+            action = ":lua Snacks.lazygit.open()",
+            desc = " Lazygit",
+            icon = " ",
             key = "g",
           },
           {
@@ -41,6 +43,34 @@ Code bad
             desc = " Quit",
             icon = " ",
             key = "q",
+          },
+        },
+      },
+    }
+    opts.zen = {
+      on_open = function()
+        require("incline").disable()
+      end,
+      on_close = function()
+        require("incline").enable()
+      end,
+    }
+    opts.picker = {
+      win = {
+        input = {
+          keys = {
+            ["<c-h>"] = { "toggle_hidden", mode = { "i", "n" } },
+            ["<c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
+            ["<c-m>"] = { "toggle_maximize", mode = { "i", "n" } },
+            ["<c-p>"] = { "toggle_preview", mode = { "i", "n" } },
+          },
+        },
+        list = {
+          keys = {
+            ["<c-h>"] = { "toggle_hidden", mode = { "i", "n" } },
+            ["<c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
+            ["<c-m>"] = { "toggle_maximize", mode = { "i", "n" } },
+            ["<c-p>"] = { "toggle_preview", mode = { "i", "n" } },
           },
         },
       },
